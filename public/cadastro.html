@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disco 2000's</title>
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="stylesheet" href="./css/cadastro.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="cor2">
+          <img src="./img/icones-header.png" />
+          <h5>www.disco2000s.com</h5>
+        </div>
+        <div class="cor1">
+          <ul>
+            <a href="index.html" style="text-decoration: none; color: #1c1c1c"><li>| Home |</li></a>
+            <a href="sobre.html" style="text-decoration: none; color: #1c1c1c"><li>| Sobre |</li></a>
+            <a href="cadastro.html" style="text-decoration: none; color: #1c1c1c"><li>| Cadastrar |</li></a>
+            <a href="login.html" style="text-decoration: none; color: #1c1c1c"><li>| Login |</li><a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner">
+      <div class="container">
+        <a href="index.html">
+          <img class="logo" src="./img/logo_disco.png"
+        /></a>
+        <img class="bannerimg" src="./img/cadgif.gif" />
+        <a href="Login.html"
+          ><img class="btnbanner" src="./img/btnforum.png"
+        /></a>
+      </div>
+    </div>
+    <aside class="aside">
+      <h1>Cadastre-se</h1>
+      <img src="./img/cursor.webp" />
+    </aside>
+
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+
+    <div class="cadastro">
+      <div class="form">
+        <h3>Nome:</h3>
+        <input type="text" id="input_nome" placeholder="insira seu nome" />
+
+        <h3>E-mail:</h3>
+        <input type="text" id="input_email" placeholder="insira seu e-mail" />
+
+        <h3>Data de nascimento:</h3>
+        <input type="date" id="input_dtNascimento"/>
+
+        <h3>Senha:</h3>
+        <input
+          type="password"
+          id="input_senha"
+          placeholder="insira uma senha"
+        />
+
+        <h3>Confirme sua senha:</h3>
+        <input
+          type="password"
+          id="input_confirmacaoSenha"
+          placeholder="confirme sua senha"
+        />
+        <div class="btn">
+          <button class="btnCadastrar" onclick="cadastrar()">Cadastrar</button>
+          <div id="div_aguardar" class="loading-div">
+            <img src="./img/circle-loading.gif" id="loading-gif" />
+          </div>
+
+          <div id="div_erros_login"></div>
+          <div id="mensagem_erro"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="corfooter">
+          <img class="btnleft" src="./img/btnleft.png" />
+          <img class="btnright" src="./img/btnright.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function cadastrar() {
+    /* aguardar(); */
+
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var dtNascimentoVar = input_dtNascimento.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmacaoSenha.value;
+
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      dtNascimentoVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Ops, e-mail inválido! Verifique e tente novamente.";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "As senhas inseridas devem ser iguais para prosseguir!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        dtNascimentoServer: dtNascimentoVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+          window.location = "login.html";
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar(); 
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>

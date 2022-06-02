@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disco 2000's</title>
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <script src="./js/funcoes.js"></script>
+  </head>
+  <body onload="validarSessao(), atualizarFeed()">
+    <div class="header">
+      <div class="container">
+        <div class="cor2">
+          <img src="./img/icones-header.png" />
+          <h5>www.disco2000s.com</h5>
+        </div>
+        <div class="cor1">
+          <ul>
+           <a href="index.html" style="text-decoration: none; color: #1c1c1c"> <li>| Sair |</li> </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--  <div class="banner">
+      <div class="container">
+        <a href="index.html">
+          <img class="logo" src="./img/logo_disco.png"
+        /></a>
+        <img class="bannerimg" src="./img/gifhome.gif" />
+        <a href="loja.html"
+          ><img class="btnbanner" src="./img/btnloja.png"
+        /></a>
+      </div>
+    </div> -->
+
+    <div class="containerForum">
+      <div class="perfil">
+        <div class="container">
+          <img src="./img/profile.gif" /><br>
+          <div id="user_usuario" class="user">User</div><br>
+          <div id="nome_usuario" class="nome">Nome</div>   
+        </div>
+      </div>
+
+      <div class="forum">
+        <div class="container">
+          <h1>Quer tc?</h1>
+          <div class="div-form">
+            <form id="form_postagem" method="post" onsubmit="return publicar()">
+              <textarea
+                name="descricao"
+                maxlength="2000"
+                id="textarea_post"
+                type="text"
+                placeholder="                            
+           
+                     
+               
+                              
+                           
+           
+                           Deixe seu depô"
+              ></textarea>
+              <button>Publicar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="containerFeed" id="id_feed">
+      <div class="feed" id="feed_container">
+        
+      </div>
+    </div>
+
+    <div class="finalAside">
+      <img src="./img/bannerprofile.gif" />
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="corfooter">
+          <img class="btnleft" src="./img/btnleft.png" />
+          <img class="btnright" src="./img/btnright.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function publicar() {
+    var idUser = sessionStorage.USER_USUARIO;
+    console.log(idUser)
+
+    var corpo = {
+      descricao: form_postagem.descricao.value
+    };
+    console.log(corpo)
+
+    fetch(`/post/publicar/${idUser}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(corpo), 
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          window.alert(
+            "Post realizado com sucesso pelo usuario de ID: " + idUser + "!"
+          );
+          window.location = "home.html";
+          /* limparFormulario(); */
+          /* finalizarAguardar(); */
+        } else if (resposta.status == 404) {
+          window.alert("Deu 404!");
+        } else {
+          throw (
+            "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+            resposta.status
+          );
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        /* finalizarAguardar(); */
+      });
+
+    return false;
+  }
+
+  // function editar(idPost) {
+  //   sessionStorage.ID_POSTAGEM_EDITANDO = idPost;
+  //   console.log("cliquei em editar - " + idPost);
+  //   window.alert(
+  //     "Você será redirecionado à página de edição do aviso de id número: " +
+  //       idPost
+  //   );
+  //   window.location = "/dashboard/edicao-aviso.html";
+  // }
+
+  // function deletar(idPost) {
+  //   console.log("Criar função de apagar post escolhido - ID" + idPost);
+  //   fetch(`/avisos/deletar/${idPost}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then(function (resposta) {
+  //       if (resposta.ok) {
+  //         window.alert(
+  //           "Post deletado com sucesso pelo usuario de email: " +
+  //             sessionStorage.getItem("EMAIL_USUARIO") +
+  //             "!"
+  //         );
+  //         window.location = "home.html";
+  //       } else if (resposta.status == 404) {
+  //         window.alert("Deu 404!");
+  //       } else {
+  //         throw (
+  //           "Houve um erro ao tentar realizar a postagem! Código da resposta: " +
+  //           resposta.status
+  //         );
+  //       }
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
+
+  function atualizarFeed() {
+    //aguardar();
+    fetch("/post/listar")
+      .then(function (resposta) {
+        if (resposta.ok) {
+          if (resposta.status == 204) {
+            var feed = document.getElementById("feed_container");
+            var mensagem = document.createElement("span");
+            mensagem.innerHTML = "Nenhum resultado encontrado.";
+            feed.appendChild(mensagem);
+            throw "Nenhum resultado encontrado!!";
+          }
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            console.log(resposta.length)
+
+            var tamanhoFeed = resposta.length * 100
+
+            feed_container.style.height = tamanhoFeed + "px"
+
+            
+            var feed = document.getElementById("feed_container");
+            feed.innerHTML = "";
+            for (let i = resposta.length - 1; i >= 0; i--) {
+              var publicacao = resposta[i];
+
+              // criando e manipulando elementos do HTML via JavaScript
+              var divPublicacao = document.createElement("div");
+              var spanID = document.createElement("span");
+              var spanTitulo = document.createElement("span");
+              var spanNome = document.createElement("span");
+              var divDescricao = document.createElement("div");
+              var divButtons = document.createElement("div");
+              // var btnEditar = document.createElement("button");
+              // var btnDeletar = document.createElement("button");
+
+              spanID.innerHTML = "<br><br><br>ID:<b>" + publicacao.idPost + "</b>";
+              // spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+              spanNome.innerHTML = "Autor:<b>" + publicacao.nome + "</b>";
+              divDescricao.innerHTML =
+                "<br>Publicação: <b>" + publicacao.descricao + "</b>";
+              // btnEditar.innerHTML = "Editar";
+              // btnDeletar.innerHTML = "Deletar";
+
+              divPublicacao.className = "publicacao";
+              spanTitulo.id = "inputNumero" + publicacao.idPost;
+              spanNome.className = "publicacao-nome";
+              // spanTitulo.className = "publicacao-titulo";
+              divDescricao.className = "publicacao-descricao";
+
+              divButtons.className = "div-buttons";
+
+              // btnEditar.className = "publicacao-btn-editar";
+              // btnEditar.id = "btnEditar" + publicacao.idPost;
+              // btnEditar.setAttribute(
+              //   "onclick",
+              //   `editar(${publicacao.idPost})`
+              // );
+
+              // btnDeletar.className = "publicacao-btn-editar";
+              // btnDeletar.id = "btnDeletar" + publicacao.idPost;
+              // btnDeletar.setAttribute(
+              //   "onclick",
+              //   `deletar(${publicacao.idPost})`
+              // );
+
+              divPublicacao.appendChild(spanID);
+              divPublicacao.appendChild(spanNome);
+              // divPublicacao.appendChild(spanTitulo);
+              divPublicacao.appendChild(divDescricao);
+              divPublicacao.appendChild(divButtons);
+              // divButtons.appendChild(btnEditar);
+              // divButtons.appendChild(btnDeletar);
+              feed.appendChild(divPublicacao);
+            }
+
+            finalizarAguardar();
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+        finalizarAguardar();
+      });
+  }
+
+  function testar() {
+    aguardar();
+
+    var formulario = new URLSearchParams(
+      new FormData(document.getElementById("form_postagem"))
+    );
+    console.log(formulario.length)
+
+    var divResultado = document.getElementById("div_feed");
+
+    divResultado.appendChild(
+      document.createTextNode(formulario.get("descricao"))
+    );
+    divResultado.innerHTML = formulario.get("descricao");
+
+    finalizarAguardar();
+
+    return false;
+  }
+
+  var send = document.querySelector('button');
+  send.addEventListener('click', publicar)
+</script>

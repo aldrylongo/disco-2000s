@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image:radial-gradient(#E0FFFF, #E6E6FA);
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    width: 100%;
+}
+
+.header .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container .cor1{
+    position: absolute;
+    width: 99vw;
+    height: 35px;
+    background-color: #C7D0D8;
+    bottom: 0;
+}
+
+.container .cor2{
+    width: 99vw;
+    height: 75px;
+    background-color: #325288;
+    
+}
+
+.header img{
+    position: absolute;
+    width: 10vw;
+    height: 08vh;
+    right: 0;
+    top: 0;
+}
+
+.header ul{                         
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    height: 13px;
+    
+
+}
+
+.header li{
+   cursor: pointer;
+   list-style: none;
+   font-size: 20px;
+   margin-right: 100px;
+}
+
+
+/* .banner .container{
+    position: relative;
+    height: 100vh;
+    width: 98vw;
+
+}
+
+.container .logo{
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    width: 15%;
+    top: 07%;
+
+}
+
+.container .bannerimg{
+    position: absolute;
+    left: 0;
+    width: 101%;
+    height: 80%;
+    top: 0;
+    
+}
+
+.container .btnbanner{
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 15%;
+} */
+
+.perfil{
+    background-color: #C7D0D8;
+    height: 500px;
+    width: 20vw;
+    margin-top: 3%;
+    margin-left: 20px;
+    box-shadow: 10px 5px 5px #777;
+}
+
+.perfil .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.perfil .user{
+    margin-left: 50px;
+    
+}
+
+.perfil .nome{
+    margin-left: 50px;
+}
+
+/* .container .icone{
+background-color: #325288;
+height: 150px;
+width: 150px;
+margin-top: 20%;
+border-radius: 20px;
+} */
+
+
+.perfil img{
+height: 180px;
+width: 180px;
+margin-left: 30px;
+}
+
+.perfil .container{
+    border: 4mm groove 	#000080;
+    height: 480px;
+   
+}
+
+
+.containerForum{
+    display: flex;
+    justify-content:space-around;
+}
+
+.forum{
+    background-color: #C7D0D8;
+    height: 500px;
+    width: 50vw;
+    margin-top: 3%;
+    margin-left: 20px;
+    margin-right: 3%;
+    box-shadow: 10px 5px 5px #777;
+
+}
+
+
+.forum .container{
+    display: flex;
+    flex-direction: column;
+    border: 4mm groove 	#000080;
+    height: 480px;
+   
+}
+
+.forum h1{
+    font-size: 30px;
+    margin-left: 33%;
+    margin-top: 5%;
+    
+}
+
+.forum button{
+    width: 200px;
+    height: 55px;
+    margin-left: 38%;
+    margin-top: 5%;
+    border: 4mm ridge #FF00FF;
+    border-radius: 20px;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    text-shadow: 2px 2px #949391;
+    cursor: pointer;
+}
+
+.forum button:hover{
+    background-color: #7FFFD4;
+    color: #1c1c11;
+    text-shadow: 4px 4px #949391
+}
+
+.forum textarea{
+    width: 500px;
+    height: 200px;
+    margin-left: 13%;
+    margin-top: 7%;
+    box-shadow: 10px 5px 5px #777;
+    border-radius: 10px;
+    
+}
+
+.containerFeed{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.feed{
+    background-color: #949391;
+    width: 1000px;
+    height: 2000px;
+    margin-top: 10%;
+    box-shadow: 10px 5px 5px #777;
+    border: 4mm ridge 	#FF00FF;
+}
+
+
+.finalAside{
+    display: flex;
+    justify-content: center;
+}
+
+.finalAside img{
+    width: 50vw;
+}
+
+.footer .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container .corfooter{
+
+    width: 99vw;
+    height: 04vh;
+    background-color: #C7D0D8;
+}
+
+.container .btnleft{
+    position: absolute;
+    width: 02vw;
+    bottom: 0;
+}
+
+.container .btnright{
+    position: absolute;
+    right: 0;
+    width: 02vw;
+    bottom: 0;
+
+}
+
+.pagina .container{
+    position: relative;
+    height: 50vh;
+}
+
+#test{
+    height: 50vh;
+    width: 300px;
+
+}
+
+
+
+
+    
+
+
+
+
+

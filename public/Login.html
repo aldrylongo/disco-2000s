@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disco 2000's</title>
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <div class="cor2">
+          <img src="./img/icones-header.png" />
+          <h5>www.disco2000s.com</h5>
+        </div>
+        <div class="cor1">
+          <ul>
+            <a href="index.html" style="text-decoration: none; color: #1c1c1c"><li>| Home |</li></a>
+            <a href="sobre.html" style="text-decoration: none; color: #1c1c1c"><li>| Sobre |</li></a>
+            <a href="cadastro.html" style="text-decoration: none; color: #1c1c1c"> <li>| Cadastrar |</li></a>
+            <a href="Login.html" style="text-decoration: none; color: #1c1c1c"><li>| Login |</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner">
+      <div class="container">
+        <a href="index.html">
+          <img class="logo" src="./img/logo_disco.png"
+        /></a>
+        <img class="bannerimg" src="./img/loggif.gif" />
+        <!-- <a href="loja.html"
+          ><img class="btnbanner" src="./img/btnloja.png"
+        /></a> -->
+      </div>
+    </div>
+    <aside class="aside">
+      <h1>Entrar</h1>
+      <img src="./img/cursor.webp" />
+    </aside>
+
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+
+    <div class="login">
+      <div class="form">
+        <h3>Nome:</h3>
+        <input type="text" id="input_nome" placeholder="insira seu nome" />
+
+        <h3>E-mail:</h3>
+        <input type="text" id="input_email" placeholder="insira seu e-mail" />
+
+        <h3>Senha:</h3>
+        <input
+          type="password"
+          id="input_senha"
+          placeholder="insira uma senha"
+        />
+
+        <div class="btn">
+          <button class="btnEntrar" onclick="entrar()">Entrar</button>
+
+          <button class="btnCadastrar">
+            <a href="cadastro.html" style="text-decoration: none; color:black">Cadastrar</a>
+          </button>
+          <div id="div_aguardar" class="loading-div">
+            <img src="./img/circle-loading.gif" id="loading-gif" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="corfooter">
+          <img class="btnleft" src="./img/btnleft.png" />
+          <img class="btnright" src="./img/btnright.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function entrar() {
+    /* aguardar(); */
+
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Ops, e-mail inválido! Verifique e tente novamente.";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.USER_USUARIO = json.idUser;
+
+            console.log(sessionStorage.NOME_USUARIO);
+            console.log(sessionStorage.USER_USUARIO);
+
+            setTimeout(function () {
+              window.location = "home.html";
+            }, 1000); // apenas para exibir o loading
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+            finalizarAguardar(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disco 2000's</title>
+  <link rel="shortcut icon" href="./favicon/favicon.ico" />
+  <link rel="stylesheet" href="./css/sobre.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="atualizaGrafico() ">
+  <div class="header">
+    <div class="container">
+      <div class="cor2">
+        <img src="./img/icones-header.png" />
+        <h5>www.disco2000s.com</h5>
+      </div>
+      <div class="cor1">
+        <ul>
+          <a href="index.html" style="text-decoration: none; color: #1c1c1c">
+            <li>| Home |</li>
+          </a>
+          <a href="sobre.html" style="text-decoration: none; color: #1c1c1c">
+            <li>| Sobre |</li>
+          </a>
+          <li>
+            <a href="cadastro.html" style="text-decoration: none; color: #1c1c1c">| Cadastrar |</a>
+          </li>
+          <li>
+            <a href="login.html" style="text-decoration: none; color: #1c1c1c">| Login |</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="container">
+      <a href="index.html">
+        <img class="logo" src="./img/logo_disco.png" /></a>
+      <img class="bannerimg" src="./img/gifanos2000.gif" />
+      <a href="Login.html"><img class="btnbanner" src="./img/btnforum.png" /></a>
+    </div>
+  </div>
+
+  <div class="pagina">
+    <div class="container">
+      <img src="./img/spam1.webp" class="spam1" />
+      <img src="./img/spam2.gif" class="spam2" />
+      <img src="./img/spam3.gif" class="spam3" />
+      <img src="./img/spam4.gif" class="spam4" />
+      <h1>Is There No Alternative?</h1>
+    </div>
+  </div>
+
+  <div class="metrica">
+    <div class="container">
+      <h3>Nossa comunidade:</h3>
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="corfooter">
+        <img class="btnleft" src="./img/btnleft.png" />
+        <img class="btnright" src="./img/btnright.png" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  function atualizaGrafico() {
+    async function obterDadosGrafico() {
+      const url = "http://localhost:3333/sobre/metricas";
+      const reposta = await fetch(url);
+
+      const dados = await reposta.json();
+      console.log(dados);
+
+      const idadeGeracoes = dados.map((usuarios) => usuarios.geracoes);
+
+      var lista_geracoes = [];
+
+      lista_geracoes.push(idadeGeracoes);
+      console.log(lista_geracoes[0]);
+
+      const labels = ["Boomers", "Millenial", "Geração Z"];
+
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: "Gerações",
+            backgroundColor: "rgb(255, 0, 0)",
+            borderColor: "rgb(255, 0, 0)",
+            data: [dados[1].contagem, dados[2].contagem, dados[0].contagem],
+          },
+        ],
+      };
+
+      const config = {
+        type: "bar",
+        data: data,
+        options: {},
+      };
+
+      const myChart = new Chart(document.getElementById("myChart"), config);
+    }
+
+    obterDadosGrafico();
+  }
+</script>

@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image:radial-gradient(#E0FFFF, #E6E6FA);
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    overflow-x: hidden;
+}
+
+img{
+    width: 100%;
+}
+
+.header .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container .cor1{
+    position: absolute;
+    width: 99vw;
+    height: 35px;
+    background-color: #C7D0D8;
+    bottom: 0;
+}
+
+.container .cor2{
+    width: 99vw;
+    height: 75px;
+    background-color: #325288;
+    
+}
+
+.header img{
+    position: absolute;
+    width: 10vw;
+    height: 08vh;
+    right: 0;
+    top: 0;
+}
+
+.header ul{                         
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    height: 13px;
+    
+
+}
+
+.header li{
+   cursor: pointer;
+   list-style: none;
+   font-size: 20px;
+}
+
+
+.banner .container{
+    position: relative;
+    height: 100vh;
+    width: 98vw;
+
+}
+
+.container .logo{
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    width: 15%;
+    top: 07%;
+
+}
+
+.container .bannerimg{
+    position: absolute;
+    left: 0;
+    width: 101%;
+    height: 80%;
+    top: 0;
+    
+}
+
+.container .btnbanner{
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 15%;
+}
+
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #C7D0D8;
+    color: #1c1c1c;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #325288 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+.login .form{
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    height: 600px;
+    margin: 0 auto;
+    background-image: url(../img/cadbackground.gif);
+    background-size: cover;
+    background-position: top;
+    align-items: center;
+   border-radius: 20px;
+}
+
+.login input{
+    width: 50%;
+    height: 20px;
+    border-radius: 30px;
+    border: 4mm ridge #7717F5;
+    
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    cursor: vertical-text;
+    margin-top: 5%;
+
+}
+
+.login h3{
+    font-size: 18px;
+    color: #FBF8FB; 
+    text-shadow: 2px 2px #171717;
+    margin-top: 5%;
+}
+
+.login .btn{
+    display: flex;
+    margin-top: 4%;
+    gap: 20px;
+
+}
+
+.login .btnCadastrar{
+    border: 4mm ridge #7717F5;
+    border-radius: 20px;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    width: 160px;
+    height: 60px;
+    text-shadow: 2px 2px #949391;
+    cursor: pointer;
+}
+
+.login .btnEntrar{
+    border: 4mm ridge #7717F5;
+    border-radius: 20px;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    width: 160px;
+    height: 60px;
+    text-shadow: 2px 2px #949391;
+    cursor: pointer;
+}
+
+.btnCadastrar:hover{
+    background-color: #FC56FC;
+    color: #FBF8FB;
+    text-shadow: 2px 2px #949391;
+}
+
+.btnEntrar:hover{
+    background-color: #FC56FC;
+    color: #FBF8FB;
+    text-shadow: 2px 2px #949391;
+}
+
+.loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+}
+  
+.loading-div img {
+    height: 50px;
+    width: 50px;
+}
+
+.aside{
+    
+    display: flex;
+    justify-content: center;
+    text-shadow: 2px 2px #949391;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.aside img{
+    width: 10vw;
+}
+
+.footer .container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50vh;
+}
+
+.container .corfooter{
+    margin-top: 80%;
+    width: 99vw;
+    height: 04vh;
+    background-color: #C7D0D8;
+    
+}
+
+.container .btnleft{
+    position: absolute;
+    width: 02vw;
+    bottom: 0;
+}
+
+.container .btnright{
+    position: absolute;
+    right: 0;
+    width: 02vw;
+    bottom: 0;
+
+}
+
+.pagina .container{
+    position: relative;
+    height: 50vh;
+}
+
+#test{
+    height: 50vh;
+    width: 300px;
+
+}
+
+
+    
+
+
+
+
+
