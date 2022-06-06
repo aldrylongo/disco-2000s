@@ -149,7 +149,7 @@ img{
 
 .sobre{
     width: 90%;
-    height: 3000px;
+    height: 8000px;
     
 }
 
@@ -158,6 +158,7 @@ img{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
     
     
 }
@@ -176,7 +177,7 @@ img{
 }
 .container .p2{
   position: absolute;
-  top: 320px;
+  top: 310px;
   left: 25%;
 }
 
@@ -271,6 +272,94 @@ img{
 .date .date2022{
     margin-top: 50px;
     margin-right: 16px;
+}
+
+.container .titulo2{
+    margin-top: 10%;
+    margin-left: 15%;
+}
+
+.container .hermesERenato{
+    width: 40%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+.container .p7{
+    position: absolute;
+    top: 2600px;
+    left: 65%;
+}
+
+.container .titulo3{
+    margin-top: 10%;
+    margin-left: 15%;
+}
+
+
+.container .subtitulo{
+    margin-left: 15%;
+}
+
+.container .p8{
+    position: absolute;
+    top: 3180px;
+    left: 63%;
+
+}
+
+.container .titulo4{
+    margin-top: 10%;
+    margin-left: 15%;
+}
+
+.container .subtitulo2{
+    margin-left: 15%;
+}
+
+.container .p9{
+    margin-left: 15%;
+    margin-top: 5%
+}
+
+.container .p10{
+    margin-left: 15%;
+}
+
+.container .gifVapor{
+    width: 60%;
+    margin-left: 26%;
+    margin-top: 5%;
+}
+    
+
+.container .p11{
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.container .titulo5{
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+.container .subtitulo3{
+    margin-left: 15%;
+}
+
+.container .p12{
+margin-left: 15%;
+}
+
+.container .smile{
+    width: 40%;
+    margin-left: 15%;
+}
+
+.container .subtitulo4{
+    position: absolute;
+    top: 6350px;
+    left: 60%;
 }
 
 .metrica{
