@@ -1,78 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disco 2000's</title>
+    <link rel="shortcut icon" href="./favicon/favicon.ico" />
+    <link rel="stylesheet" href="./css/sobre.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disco 2000's</title>
-  <link rel="shortcut icon" href="./favicon/favicon.ico" />
-  <link rel="stylesheet" href="./css/sobre.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-
-<body onload="atualizaGrafico() ">
-  <div class="header">
-    <div class="container">
-      <div class="cor2">
-        <img src="./img/icones-header.png" />
-        <h5>www.disco2000s.com</h5>
-      </div>
-      <div class="cor1">
-        <ul>
-          <a href="index.html" style="text-decoration: none; color: #1c1c1c">
-            <li>| Home |</li>
-          </a>
-          <a href="sobre.html" style="text-decoration: none; color: #1c1c1c">
-            <li>| Sobre |</li>
-          </a>
-          <li>
-            <a href="cadastro.html" style="text-decoration: none; color: #1c1c1c">| Cadastrar |</a>
-          </li>
-          <li>
-            <a href="login.html" style="text-decoration: none; color: #1c1c1c">| Login |</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="banner">
-    <div class="container">
-      <a href="index.html">
-        <img class="logo" src="./img/logo_disco.png" /></a>
-      <img class="bannerimg" src="./img/gifanos2000.gif" />
-      <a href="Login.html"><img class="btnbanner" src="./img/btnforum.png" /></a>
-    </div>
-  </div>
-
-  <div class="pagina">
-    <div class="container">
-      <img src="./img/spam1.webp" class="spam1" />
-      <img src="./img/spam2.gif" class="spam2" />
-      <img src="./img/spam3.gif" class="spam3" />
-      <img src="./img/spam4.gif" class="spam4" />
-      <h1>Is There No Alternative?</h1>
-    </div>
-  </div>
-
-  <div class="metrica">
-    <div class="container">
-      <h3>Nossa comunidade:</h3>
-      <canvas id="myChart"></canvas>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="container">
-      <div class="corfooter">
-        <img class="btnleft" src="./img/btnleft.png" />
-        <img class="btnright" src="./img/btnright.png" />
+  <body onload="atualizaGrafico() ">
+    <div class="header">
+      <div class="container">
+        <div class="cor2">
+          <img src="./img/icones-header.png" />
+          <h5>www.disco2000s.com</h5>
+        </div>
+        <div class="cor1">
+          <ul>
+            <a href="index.html" style="text-decoration: none; color: #1c1c1c">
+              <li>| Home |</li>
+            </a>
+            <a href="sobre.html" style="text-decoration: none; color: #1c1c1c">
+              <li>| Sobre |</li>
+            </a>
+            <li>
+              <a
+                href="cadastro.html"
+                style="text-decoration: none; color: #1c1c1c"
+                >| Cadastrar |</a
+              >
+            </li>
+            <li>
+              <a href="login.html" style="text-decoration: none; color: #1c1c1c"
+                >| Login |</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</body>
 
+    <div class="banner">
+      <div class="container">
+        <a href="index.html">
+          <img class="logo" src="./img/logo_disco.png"
+        /></a>
+        <img class="bannerimg" src="./img/gifanos2000.gif" />
+        <a href="Login.html"
+          ><img class="btnbanner" src="./img/btnforum.png"
+        /></a>
+      </div>
+    </div>
+
+    <div class="pagina">
+      <div class="container">
+        <img src="./img/spam1.webp" class="spam1" />
+        <img src="./img/spam2.gif" class="spam2" />
+        <img src="./img/spam3.gif" class="spam3" />
+        <img src="./img/spam4.gif" class="spam4" />
+        <h1>Bem-vindo ao Disco2000's.</h1>
+      </div>
+    </div>
+
+    <div class="sobre">
+      <div class="container">
+        <p class="p1">
+          Minha motivação é encontrar pessoas, que assim como eu, são agudamente
+          nostalgicas e procuram sempre questionar as origens dessas
+          caracteristicas que nascem (ou nao(provavelmente não(quase certeza que
+          não, mesmo))) conosco. Juntos, criamos uma comunidade para conversar,
+          compartilhar e (sempre) questionar.
+        </p>
+        <img class="celularHelloKitty" src="./img/celularHelloKitty.png" />
+        <p class="p2">
+          Nasci em 1998 e peguei o começo dos anos 2000 engatinhando... Porém,
+          me lembro nitidamente da internet discada, as correntes por e-mail,
+          baixar músicas no eMule para o meu sony ericsson da hello kitty...
+        </p>
+
+        <img class="gifBomDia" src="./img/gifBomDia.gif" />
+        <p class="p3">
+          Mas posso afirmar com toda a certeza que uma das coisas que mais sinto
+          falta, são os gifs de bom dia cheios de gliter e cores. Ai, aquele
+          choque de informações onde você nem ao menos conseguia ler direito o
+          que estava escrito. Que estética linda, que época de ouro!
+        </p>
+        <h1 class="titulo">
+          Mas além da internet, o que mais ajudou a moldar minha personalidade e
+          quem sou hoje?
+        </h1>
+
+        <img class="mariMoon" src="./img/mariMoon.jpg" />
+        <p class="p4">
+          Um dos principais culpados foi a MTV. E se você já assistiu MTV alguma
+          vez em torno de 2009, com certeza você conhece a MariMoon.
+        </p>
+
+        <p class="p5">
+          A MariMoon foi a maior inspiração fashion para mim. Me lembro bem de
+          passar sombra para olhos no cabelo, para colorir. Batom, esmalte,
+          papel crepom, QUALQUER COISA que deixasse o meu cabelo lindo igual ao
+          dela. Mas eu não admirava somente o estilo da MariMoon, eu também
+          admirava a sua personalidade. Principalmente a forma feliz em como ela
+          se comunicava.
+        </p>
+
+        <p class="p6">
+          E quando eu FINALMENTE pude pintar o meu cabelo... Eu não parei mais.
+        </p>
+
+        <img class="marte2013" src="./img/marte2013.jpg" />
+        <img class="marte2015" src="./img/marte2015.jpg" />
+        <img class="marte2018" src="./img/marte2018.jpg" />
+        <img class="marte2022" src="./img/marte2022.jpg" />
+
+        <div class="date">
+          <div class="container">
+            <h3>(2013)</h3>
+            <h3>(2015)</h3>
+            <h3>(2018)</h3>
+            <h3 class="date2022">(2022)</h3>
+          </div>
+        </div>
+
+        <p></p>
+      </div>
+    </div>
+
+    <div class="metrica">
+      <div class="container">
+        <h3>Nossa comunidade:</h3>
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="corfooter">
+          <img class="btnleft" src="./img/btnleft.png" />
+          <img class="btnright" src="./img/btnright.png" />
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
 <script>
   function atualizaGrafico() {

@@ -103,7 +103,7 @@ img{
     position: relative;
     display: flex;
     justify-content: center;
-    height: 2000px;
+    height: 500px;
     
 }
 
@@ -145,6 +145,132 @@ img{
 .pagina h1{
     margin-top: 500px;
     margin-left: 95px;
+}
+
+.sobre{
+    width: 90%;
+    height: 3000px;
+    
+}
+
+.sobre .container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+}
+
+.container .p1{
+    margin-top: 05%;
+    margin-left: 23%;
+
+}
+
+.container .celularHelloKitty{
+    position: absolute;
+    width: 20%;
+    top: 200px;
+
+}
+.container .p2{
+  position: absolute;
+  top: 320px;
+  left: 25%;
+}
+
+.container .gifBomDia{
+    position: absolute;
+    width: 40%;
+    top: 590px;
+    left: 38%;
+}
+
+.container .p3{
+    position: absolute;
+    top: 450px;
+    left: 25%;
+}
+
+.container .titulo{
+    position: absolute;
+    top: 1200px;
+    left: 15%;
+}
+
+.container .p4{
+    position: absolute;
+    top: 1380px;
+    left: 15%;
+}
+
+.container .mariMoon{
+    position: absolute;
+    width: 20%;
+    top: 1490px;
+    left: 15%;
+    border: 4mm groove 	#000080;
+    box-shadow: 10px 5px 5px #777;
+}
+
+.container .p5{
+    position: absolute;
+    top: 1490px;
+    left: 40%;
+}
+
+.container .p6{
+    position: absolute;
+    top: 1780px;
+    left: 40%;
+}
+
+.container .marte2013{
+    width: 19%;
+    margin-top: 1800px;
+    margin-left: 05%;
+    border: 4mm groove 	#000080;
+    box-shadow: 10px 5px 5px #777;
+}
+
+.container .marte2015{
+    position: absolute;
+    width: 20%;
+    left: 30%;
+    top: 1920px;
+    border: 4mm groove 	#000080;
+    box-shadow: 10px 5px 5px #777;
+}
+
+.container .marte2018{
+    position: absolute;
+    width: 18%;
+    left: 58%;
+    top: 1920px;
+    border: 4mm groove 	#000080;
+    box-shadow: 10px 5px 5px #777;
+}
+
+.container .marte2022{
+    position: absolute;
+    width: 15%;
+    left: 85%;
+    top: 1920px;
+    border: 4mm groove 	#000080;
+    box-shadow: 10px 5px 5px #777;
+}
+
+.date .container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.date .date2022{
+    margin-top: 50px;
+    margin-right: 16px;
 }
 
 .metrica{
