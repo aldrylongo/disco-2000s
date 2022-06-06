@@ -362,6 +362,10 @@ margin-left: 15%;
     left: 60%;
 }
 
+.container .p13{
+    margin-left: 15%;
+}
+
 .metrica{
     display: flex;
     justify-content: center;
