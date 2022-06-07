@@ -407,6 +407,30 @@ margin-left: 15%;
     left: 15%;
 }
 
+.container .titulo7{
+    position: absolute;
+    top: 123%;
+    left: 34%;
+}
+
+.container .p18{
+    position: absolute;
+    top: 124%;
+    left: 15%;
+}
+
+.container .titulo8{
+    position: absolute;
+    top: 143.5%;
+    left: 32%;
+}
+
+.container .p19{
+    position: absolute;
+    top: 144.5%;
+    left: 15%;
+}
+
 .metrica{
     display: flex;
     justify-content: center;
