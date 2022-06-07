@@ -149,7 +149,7 @@ img{
 
 .sobre{
     width: 90%;
-    height: 8000px;
+    height: 15000px;
     
 }
 
@@ -364,6 +364,34 @@ margin-left: 15%;
 
 .container .p13{
     margin-left: 15%;
+}
+
+.container .p14{
+    margin-left: 15%;
+}
+
+.container .akiraGif{
+    width: 50%;
+    margin-left: 15%;
+    margin-top: 20px;
+}
+
+.container .p15{
+    position: absolute;
+    top: 95.3%;
+    left: 68%;
+}
+
+.container .titulo6{
+    position: absolute;
+    top: 101%;
+    left: 25%;
+}
+
+.container .p16{
+    position: absolute;
+    top: 101.8%;
+    left: 15%;
 }
 
 .metrica{
