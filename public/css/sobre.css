@@ -390,7 +390,20 @@ margin-left: 15%;
 
 .container .p16{
     position: absolute;
-    top: 101.8%;
+    top: 102%;
+    left: 15%;
+}
+
+.container .p17{
+    position: absolute;
+    top: 104%;
+    left: 15%;
+}
+
+.container .bjorkGif{
+    position: absolute;
+    width: 81%;
+    top: 114%;
     left: 15%;
 }
 
