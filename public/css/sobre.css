@@ -149,7 +149,7 @@ img{
 
 .sobre{
     width: 90%;
-    height: 15000px;
+    height: 18000px;
     
 }
 
@@ -428,6 +428,18 @@ margin-left: 15%;
 .container .p19{
     position: absolute;
     top: 144.5%;
+    left: 15%;
+}
+
+.container .titulo9{
+    position: absolute;
+    top: 205%;
+    left: 43%;
+}
+
+.container .p20{
+    position: absolute;
+    top: 206%;
     left: 15%;
 }
 
